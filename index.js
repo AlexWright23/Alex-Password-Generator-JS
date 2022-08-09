@@ -6,7 +6,7 @@ var numbers = "0123456789".split("");
 var symbols = "!@#$%^&*()-_".split("");
 
 // Write password to the #password input
-function writePassword() {
+function generatePassword() {
 	var globalSet = [];
 	var generatePassword = '';
 
