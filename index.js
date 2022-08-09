@@ -1,13 +1,13 @@
 var generateBtn = document.querySelector("#generate");
 
-var lowerCase = "abcdefghijklmnopqrstuvwxyz".split("");
-var upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
-var numbers = "0123456789".split("");
-var symbols = "!@#$%^&*()-_".split("");
+var lowerCase = "abcdefghijklmnopqrstuvwxyz";
+var upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+var numbers = "0123456789";
+var symbols = "!@#$%^&*()-_";
 
 // Write password to the #password input
 function generatePassword() {
-	var globalSet = [];
+	var globalSet = "";
 	var generatePassword = '';
 
 var passwordLength = window.prompt("Please write a password that is at least 8 charecters long and no longer than 128 charecters");
@@ -16,26 +16,27 @@ if (passwordLength < 8 || passwordLength > 128 || passwordLength === NaN) {
 	generatePassword();
 }
 else {
-	var lowerCase = window.confirm("Your password will include lower case letters.");
-	var upperCase = window.confirm("Your password will include upper case letters.");
-	var numbers = window.confirm("Your password will include numbers.");
-	var symbols = window.confirm("Your password will include symbols.");
-	if (lowerCase == true) {
-		globalSet = globalSet.concat(lowerCase);
+	var lowerCaseAns = window.confirm("Your password will include lower case letters.");
+	var upperCaseAns = window.confirm("Your password will include upper case letters.");
+	var numbersAns = window.confirm("Your password will include numbers.");
+	var symbolsAns = window.confirm("Your password will include symbols.");
+	if (lowerCaseAns == true) {
+		globalSet += lowerCase;
 	}
-	if (upperCase == true) {
-		globalSet = globalSet.concat(lowerCase);
+	if (upperCaseAns == true) {
+		globalSet += upperCase;
 	}
-	if (numbers == true) {
-		globalSet = globalSet.concat(lowerCase);
+	if (numbersAns == true) {
+		globalSet += numbers;
 	}
-	if (symbols == true) {
-		globalSet = globalSet.concat(lowerCase);
+	if (symbolsAns == true) {
+		globalSet += symbols;
 	}
-	
-	for (var i = 0; i < generate; i++) {
+	console.log(globalSet)
+
+	for (var i = 0; i < passwordLength; i++) {
 		let currentChar = Math.floor(Math.random() * globalSet.length)
-		generatePassword *= globalSet[currentChar];
+		generatePassword += globalSet[currentChar];
 	}
 	return generatePassword
 	}
